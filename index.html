@@ -3,14 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script>
-		window.addEventListener('load', function () {
-			console.log('window load')
-		})
-	</script>
 </head>
 <body>
 	<div class="container">
+		<h1>Olá!</h1>
+		<h1>Olá!</h1>
+		<h1>Olá!</h1>
+		<h1>Olá!</h1>
+		<h1>Olá!</h1>
+		<h1>Olá!</h1>
+		<h1>Olá!</h1>
 		<h1>Olá!</h1>
 	</div>
 
@@ -20,20 +22,11 @@
 		document.addEventListener('DOMContentLoaded', onDOMContentLoaded)
 
 		function onDOMContentLoaded (event) {
-			var container = document.querySelector('.container')
+			var h1List = document.querySelectorAll('h1')
 
-			var h1 = document.createElement('h1')
-			h1.innerText = 'Olá, eu era uma String fofinha!'
-
-			container.insertAdjacentElement('beforebegin', h1)
-			/*
-			Elementos
-				<!-- beforebegin -->
-				<div><!-- afterbegin --> conteudo <!-- beforeend --></div>
-				<!-- afterend -->
-
-				https://developer.mozilla.org/pt-BR/docs/Web/API/Element/insertAdjacentHTML
-			 */
+			Array.prototype.slice.call(h1List).map(function (element, index) {
+				element.innerText = index + ' ' + element.innerText
+			})
 		}
 	</script>
 </body>
