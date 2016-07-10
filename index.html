@@ -22,9 +22,10 @@
 		function onDOMContentLoaded (event) {
 			var container = document.querySelector('.container')
 
-			var html = '<h1>Olá, eu era uma String fofinha!</h1>'
+			var h1 = document.createElement('h1')
+			h1.innerText = 'Olá, eu era uma String fofinha!'
 
-			container.insertAdjacentHTML('beforebegin', html)
+			container.insertAdjacentElement('beforebegin', h1)
 			/*
 			Elementos
 				<!-- beforebegin -->
