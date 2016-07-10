@@ -3,66 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<style>
-		.js h1 {
-			opacity: 0;
-			transform: translateX(-100px);
-		}
-
-		.entering {
-			animation: entering 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
-		}
-
-		@keyframes entering {
-			from: {
-				opacity: 0;
-				transform: translateX(-100px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translateX(0);
-			}
-		}
-	</style>
+	<link rel="stylesheet" href="index.css">
 </head>
 <body>
 	<div data-container></div>
 
 	<img src="//lorempixel.com/500/500/">
 
-	<script>
-		document.body.classList.add('js')
-
-		document.addEventListener('DOMContentLoaded', onDOMContentLoaded)
-
-		function onDOMContentLoaded (event) {
-			var container = document.querySelector('[data-container]')
-
-			container.insertAdjacentHTML('beforebegin', createContainer())
-
-			var h1List = document.querySelectorAll('h1')
-
-			Array.prototype.slice.call(h1List).map(function (element, index) {
-				element.innerText = index + ' ' + element.innerText
-
-				setTimeout(function () {
-					element.classList.add('entering')
-				}, 100 * index)
-			})
-		}
-
-		function createContainer() {
-			var fragment = '<div class="container">'
-
-			for (var i = 0; i < 10; i++) {
-				fragment += '<h1>Olá</h1>'
-			}
-
-			fragment += '</div>'
-
-			return fragment
-		}
-	</script>
+	<script src="index.js"></script>
 </body>
 </html>
