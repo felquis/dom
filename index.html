@@ -27,16 +27,7 @@
 	</style>
 </head>
 <body>
-	<div class="container">
-		<h1>Olá!</h1>
-		<h1>Olá!</h1>
-		<h1>Olá!</h1>
-		<h1>Olá!</h1>
-		<h1>Olá!</h1>
-		<h1>Olá!</h1>
-		<h1>Olá!</h1>
-		<h1>Olá!</h1>
-	</div>
+	<div data-container></div>
 
 	<img src="//lorempixel.com/500/500/">
 
@@ -46,6 +37,11 @@
 		document.addEventListener('DOMContentLoaded', onDOMContentLoaded)
 
 		function onDOMContentLoaded (event) {
+			var template = createContainer()
+
+			var container = document.querySelector('[data-container]')
+			container.appendChild(template)
+
 			var h1List = document.querySelectorAll('h1')
 
 			Array.prototype.slice.call(h1List).map(function (element, index) {
@@ -55,6 +51,24 @@
 					element.classList.add('entering')
 				}, 100 * index)
 			})
+		}
+
+		function createContainer() {
+			var fragment = document.createDocumentFragment()
+
+			var container = document.createElement('div')
+			container.classList.add('container')
+
+			var h1 = document.createElement('h1')
+			h1.textContent = 'Olá'
+
+			fragment.appendChild(container)
+
+			for (var i = 0; i < 10; i++) {
+				container.appendChild( h1.cloneNode(true) )
+			}
+
+			return fragment
 		}
 	</script>
 </body>
