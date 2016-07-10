@@ -37,10 +37,9 @@
 		document.addEventListener('DOMContentLoaded', onDOMContentLoaded)
 
 		function onDOMContentLoaded (event) {
-			var template = createContainer()
-
 			var container = document.querySelector('[data-container]')
-			container.appendChild(template)
+
+			container.insertAdjacentHTML('beforebegin', createContainer())
 
 			var h1List = document.querySelectorAll('h1')
 
@@ -54,19 +53,13 @@
 		}
 
 		function createContainer() {
-			var fragment = document.createDocumentFragment()
-
-			var container = document.createElement('div')
-			container.classList.add('container')
-
-			var h1 = document.createElement('h1')
-			h1.textContent = 'Olá'
-
-			fragment.appendChild(container)
+			var fragment = '<div class="container">'
 
 			for (var i = 0; i < 10; i++) {
-				container.appendChild( h1.cloneNode(true) )
+				fragment += '<h1>Olá</h1>'
 			}
+
+			fragment += '</div>'
 
 			return fragment
 		}
