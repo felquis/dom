@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.addEventListener('load', function () {
+			console.log('window load')
+		})
+	</script>
+</head>
+<body>
+	<h1>Olá!</h1>
+
+	<img src="//lorempixel.com/500/500">
+
+	<script>
+		document.addEventListener('DOMContentLoaded', onDOMContentLoaded)
+
+		function onDOMContentLoaded (event) {
+			var h1 = document.querySelector('h1')
+
+			console.dir('DOMContentLoaded')
+		}
+	</script>
+</body>
+</html>
