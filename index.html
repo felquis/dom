@@ -10,7 +10,10 @@
 	</script>
 </head>
 <body>
-	<h1>Olá!</h1>
+
+	<div class="container">
+		<h1>Olá!</h1>
+	</div>
 
 	<img src="//lorempixel.com/500/500">
 
@@ -25,9 +28,14 @@
 		document.addEventListener('DOMContentLoaded', onDOMContentLoaded)
 
 		function onDOMContentLoaded (event) {
-			var h1 = document.querySelector('h1')
+			var container = document.querySelector('.container')
 
-			console.dir('DOMContentLoaded')
+			container.innerText = ''
+
+			var element = document.createElement('h1')
+			element.innerText = 'Olá, JavaScript me criou!'
+
+			container.appendChild(element)
 		}
 	</script>
 </body>
